@@ -20,7 +20,7 @@
         </test>
     </tests>
     <help><![CDATA[
-        Create MethylSet objects contains only the methylated and unmethylated signals
+        This tool matches up the different probes and color channels.
     ]]></help>
     <citations>
         <citation type="doi">10.1093/bioinformatics/btu049</citation>
