@@ -5,9 +5,21 @@
         <requirement type="package" version="0.4.0">bioconductor-illuminahumanmethylation450kmanifest</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript ${__tool_directory__}/minfi_mset.R "$input1" "$output1"
+        Rscript '$minfi_mset_script'
     ]]></command>
-    <inputs>
+ <configfiles>
+<configfile name="minfi_mset_script"><![CDATA[
+require("minfi", quietly = TRUE)
+
+RGSet <- get(load('$input1'))
+
+MSet <- preprocessRaw(RGSet)
+
+save(MSet,file = '$output1')
+
+]]> </configfile>
+</configfiles>  
+ <inputs>
         <param type="data" name="input1" format="rdata" label="RGChannelSet"/>
     </inputs>
     <outputs>
